@@ -97,7 +97,7 @@ int free_all2(t_list *data);
 void     exit_pos(t_list *data);
 void    compteur_pas(t_list *data);
 char *ft_join(char  *s1, char  *s2);
-void    initialisation(t_list *data);
+int    initialisation(t_list *data);
 int w_mov(t_list *data, int x, int y);
 int s_mov(t_list *data, int x, int y);
 int d_mov(t_list *data, int x, int y);

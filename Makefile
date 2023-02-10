@@ -6,7 +6,7 @@
 #    By: educlos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 14:49:59 by hel-kame          #+#    #+#              #
-#    Updated: 2023/02/08 17:11:03 by educlos          ###   ########.fr        #
+#    Updated: 2023/02/09 13:35:06 by educlos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,10 @@ SRC = $(SRC_DIR)/checker_map.c				\
 	  $(SRC_DIR)/positions.c				\
 	  $(SRC_DIR)/refresh.c					\
 	  $(SRC_DIR)/compteur.c					\
-	  $(SRC_DIR)/init.c					     \
-  	  $(SRC_DIR)/movement.c					     \
+	  $(SRC_DIR)/init.c					    \
+  	  $(SRC_DIR)/movement.c					\
+      $(SRC_DIR)/get_next_line.c	        \
+
 
 
 

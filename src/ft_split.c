@@ -100,11 +100,5 @@ char	**ft_split(char const *s, char c)
 	if (!attribute_word(s, c, tab, len - 1))
 		return (0);
 	word_write(s, c, tab, len - 1);
-	while (len - 1 > 0)
-	{
-		printf("%s\n", tab[len - 2]);
-		len--;
-	}
-
 	return (tab);
 }

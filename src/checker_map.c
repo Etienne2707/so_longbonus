@@ -22,7 +22,6 @@ int	checker_map(char **tab)
 		return (0);
 	if (!one_p_e(tab, 'E'))
 		return (0);
-	free(tab);
 	return (1);
 }
 
@@ -37,10 +36,10 @@ int     check_char(char **tab)
 		j = 0;
 		while (tab[i][j] != '\0')
 		{
-			if (tab[i][j] != 'E' && tab[i][j] != 'P' && tab[i][j] != 'C'
-					&& tab[i][j] != '0' && tab[i][j]  != '1')
+			if (tab[i][j] == 'E' || tab[i][j] == 'P' || tab[i][j] == 'C' || tab[i][j] == '0' || tab[i][j]  == '1' || tab[i][j] == 'Y')
+				j++;
+			else
 				return (0);
-			j++;
 		}
 		i++;
 	}
