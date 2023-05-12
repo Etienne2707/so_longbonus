@@ -9,9 +9,17 @@ char     **gnl_and_check(void)
         char    **tab;
         a = open("./src/map.ber", O_RDONLY);
         str = get_next_line(a);
+		if (!str)
+		{
+			printf("Fichier vide");
+			return (NULL);
+		}
         tab = ft_split(str, '\n');
         if (!checker_map(tab))
+		{
 			printf("map ko");
+			return NULL;
+		}
 		else
 			printf("map ok");
         free(str);
@@ -26,12 +34,14 @@ int	close_window(void)
 }
 int free_all2(t_list *data)
 {
-	free(data->map);
+	free_all(data->map, test(data->map));
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_destroy_image(data->mlx, data->img2);
 	mlx_destroy_image(data->mlx, data->trainer);
 	mlx_destroy_image(data->mlx, data->collectible);
 	mlx_destroy_image(data->mlx, data->exit);
+	mlx_destroy_image(data->mlx, data->trainer2);
+	mlx_destroy_image(data->mlx, data->enemies);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

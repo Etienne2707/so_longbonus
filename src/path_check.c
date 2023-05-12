@@ -100,6 +100,6 @@ char **path_check(char **map)
     start(str);
     if (roadmap(str) == 0)
         return (NULL);
-    free(str);
+    free_all(str, test(str));
     return (map);
 }

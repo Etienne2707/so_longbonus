@@ -67,16 +67,19 @@ int     check_length(char **tab)
 
 int     check_startend(char **tab)
 {
-	int     i;
-	int     len;
-	
+	int	i;
+	int	len;
+
 	i = 0;
 	len = 0;
 	while (tab[i] != 0)
 	{
 		len = ft_strlen(tab[i]);
-		if (tab[i][0] != '1' && tab[i][len] != '1')
+		if (tab[i][0] != '1' || tab[i][len - 1] != '1')
+		{
+			write(2, "No all wall\n", 12);
 			return (0);
+		}
 		i++;
 	}
 	return (1);

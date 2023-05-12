@@ -20,7 +20,7 @@ static int	word_count(const char *str, char charset)
 	return (count);
 }
 
-static int	free_all(char **tab, int i)
+int	free_all(char **tab, int i)
 {
 	while (i >= 0)
 	{

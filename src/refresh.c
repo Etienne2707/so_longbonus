@@ -7,9 +7,10 @@ void    refresh(t_list *data)
 
     j = 0;
     k = 0;
+    col_max(data);
     if (data->collect_total == data->collect_current)
         data->map[data->exit_col][data->exit_line] = 'E';
-    while (j < 5)
+    while (j < data->map_col)
 	{
 		k = 0;
 		while (k < ft_strlen(data->map[0]))

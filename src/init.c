@@ -8,6 +8,8 @@ int    initialisation(t_list *data)
 	data->nb_move = 0; 
 	data->animation = 0;
 	data->map = gnl_and_check();
+	if (data->map == NULL)
+		return 0;
 	if (path_check(data->map) == NULL)
         return 0;
 	data->mlx = mlx_init();

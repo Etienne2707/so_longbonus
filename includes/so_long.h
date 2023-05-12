@@ -55,6 +55,7 @@ typedef struct s_list
 	int		animation;
 	void	*trainer2;
 	void	*enemies;
+	int 	map_col;
 
 }	t_list;
 
@@ -102,6 +103,9 @@ int w_mov(t_list *data, int x, int y);
 int s_mov(t_list *data, int x, int y);
 int d_mov(t_list *data, int x, int y);
 int a_mov(t_list *data, int x, int y);
+void	col_max(t_list *data);
+int	free_all(char **tab, int i);
+int	test(char **str);
 
 
 

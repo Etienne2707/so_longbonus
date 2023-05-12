@@ -53,5 +53,4 @@ int d_mov(t_list *data, int x, int y)
     data->map[x][y] = '0';
     data->animation = 1;
     return (1);
-
 }
