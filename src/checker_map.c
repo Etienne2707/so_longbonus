@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_map.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/15 13:43:59 by educlos           #+#    #+#             */
+/*   Updated: 2023/05/15 13:46:57 by educlos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
 
@@ -25,18 +36,19 @@ int	checker_map(char **tab)
 	return (1);
 }
 
-int     check_char(char **tab)
+int	check_char(char **tab)
 {
-	int     i;
-	int     j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (tab[i] != 0)
 	{
 		j = 0;
 		while (tab[i][j] != '\0')
 		{
-			if (tab[i][j] == 'E' || tab[i][j] == 'P' || tab[i][j] == 'C' || tab[i][j] == '0' || tab[i][j]  == '1' || tab[i][j] == 'Y')
+			if (tab[i][j] == 'E' || tab[i][j] == 'P' || tab[i][j] == 'C'
+			|| tab[i][j] == '0' || tab[i][j] == '1' || tab[i][j] == 'Y')
 				j++;
 			else
 				return (0);
@@ -46,12 +58,12 @@ int     check_char(char **tab)
 	return (1);
 }
 
-int     check_length(char **tab)
+int	check_length(char **tab)
 {
-	int     i;
-	int     len;
-	int     current_len;
-	
+	int	i;
+	int	len;
+	int	current_len;
+
 	i = 0;
 	len = ft_strlen(tab[i]);
 	current_len = 0;
@@ -65,7 +77,7 @@ int     check_length(char **tab)
 	return (1);
 }
 
-int     check_startend(char **tab)
+int	check_startend(char **tab)
 {
 	int	i;
 	int	len;
@@ -85,21 +97,21 @@ int     check_startend(char **tab)
 	return (1);
 }
 
-int     line_count(char **tab)
+int	line_count(char **tab)
 {
-	int     i;
-	
+	int	i;
+
 	i = 0;
 	while (tab[i] != 0)
 		i++;
 	return (i);
 }
 
-int     check_full_one(char **tab)
+int	check_full_one(char **tab)
 {
-	int     line_nb;
-	int     k;
-	
+	int	line_nb;
+	int	k;
+
 	line_nb = line_count(tab);
 	while (tab[0][0] != '\0')
 	{
@@ -117,17 +129,17 @@ int     check_full_one(char **tab)
 				return (0);
 			k++;
 		}
-		break;
+		break ;
 	}
 	return (1);
 }
 
-int     one_p_e(char **tab, char c)
+int	one_p_e(char **tab, char c)
 {
-	int     i;
-	int     j;
-	int     count;
-	
+	int	i;
+	int	j;
+	int	count;
+
 	i = 0;
 	count = 0;
 	while (tab[i] != 0)

@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/15 13:51:19 by educlos           #+#    #+#             */
+/*   Updated: 2023/05/15 14:00:06 by educlos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
-int pos_x(t_list *data)
+
+int	pos_x(t_list *data)
 {
-    int     x;
-	int     y;
-	
+	int	x;
+	int	y;
+
 	x = 0;
 	while (data->map[x] != 0)
 	{
@@ -16,14 +29,14 @@ int pos_x(t_list *data)
 		}
 		x++;
 	}
-    return (0);
+	return (0);
 }
 
-int pos_y(t_list *data)
+int	pos_y(t_list *data)
 {
-    int     x;
-	int     y;
-	
+	int	x;
+	int	y;
+
 	x = 0;
 	y = 0;
 	while (data->map[x] != 0)
@@ -37,24 +50,24 @@ int pos_y(t_list *data)
 		}
 		x++;
 	}
-    return (0);
+	return (0);
 }
 
-int event(int key, t_list *data)
+int	event(int key, t_list *data)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    x = pos_x(data);
-    y = pos_y(data);
-    if (key == 119)
-        w_mov(data,x,y);
-    else if (key == 97)
-        a_mov(data,x,y);
-    else if (key == 115)
-        s_mov(data,x,y);
-    else if (key == 100)
-        d_mov(data,x,y);
-    refresh(data);
-    return 1;
+	x = pos_x(data);
+	y = pos_y(data);
+	if (key == 119)
+		w_mov(data, x, y);
+	else if (key == 97)
+		a_mov(data, x, y);
+	else if (key == 115)
+		s_mov(data, x, y);
+	else if (key == 100)
+		d_mov(data, x, y);
+	refresh(data);
+	return (1);
 }
