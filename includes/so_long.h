@@ -106,6 +106,7 @@ int a_mov(t_list *data, int x, int y);
 void	col_max(t_list *data);
 int	free_all(char **tab, int i);
 int	test(char **str);
+void    refresh2(int j, int k, t_list *data);
 
 
 
