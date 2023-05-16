@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:00:26 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/15 14:01:20 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 11:25:42 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*getting_file(char *buff, int fd)
 
 char	*getting_line(char *buff)
 {
-	char		*str;
-	int			i;
+	char	*str;
+	int		i;
 
 	i = 0;
 	if (buff[i] == 0)
@@ -60,10 +60,10 @@ char	*getting_line(char *buff)
 
 char	*trimmed_buff(char *buff)
 {
-	char		*str;
-	int			i;
-	int			j;
-	int			size;
+	char	*str;
+	int		i;
+	int		j;
+	int		size;
 
 	i = 0;
 	j = 0;
@@ -73,7 +73,7 @@ char	*trimmed_buff(char *buff)
 		free(buff);
 		return (NULL);
 	}
-	str = malloc(sizeof (char) * (size + 1));
+	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
 	i = ft_strlen(buff);
@@ -86,8 +86,8 @@ char	*trimmed_buff(char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char		*buff;
-	char			*str;
+	static char	*buff;
+	char		*str;
 
 	str = 0;
 	if (fd < 0 || BUFFER_SIZE <= 0)

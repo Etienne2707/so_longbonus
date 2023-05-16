@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:43:59 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/15 13:46:57 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 15:34:38 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	check_char(char **tab)
 		while (tab[i][j] != '\0')
 		{
 			if (tab[i][j] == 'E' || tab[i][j] == 'P' || tab[i][j] == 'C'
-			|| tab[i][j] == '0' || tab[i][j] == '1' || tab[i][j] == 'Y')
+				|| tab[i][j] == '0' || tab[i][j] == '1' || tab[i][j] == 'Y')
 				j++;
 			else
 				return (0);
@@ -97,16 +97,6 @@ int	check_startend(char **tab)
 	return (1);
 }
 
-int	line_count(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i] != 0)
-		i++;
-	return (i);
-}
-
 int	check_full_one(char **tab)
 {
 	int	line_nb;
@@ -132,29 +122,4 @@ int	check_full_one(char **tab)
 		break ;
 	}
 	return (1);
-}
-
-int	one_p_e(char **tab, char c)
-{
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (tab[i] != 0)
-	{
-		j = 0;
-		while (tab[i][j] != '\0')
-		{
-			if (tab[i][j] == c)
-				count++;
-			j++;
-		}
-		i++;
-	}
-	if (count == 1)
-		return (1);
-	else
-		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:03:45 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/15 14:12:50 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 15:32:23 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,6 @@ int	close_window(void)
 	return (0);
 }
 
-int	free_all2(t_list *data)
-{
-	free_all(data->map, test(data->map));
-	mlx_destroy_image(data->mlx, data->img);
-	mlx_destroy_image(data->mlx, data->img2);
-	mlx_destroy_image(data->mlx, data->trainer);
-	mlx_destroy_image(data->mlx, data->collectible);
-	mlx_destroy_image(data->mlx, data->exit);
-	mlx_destroy_image(data->mlx, data->trainer2);
-	mlx_destroy_image(data->mlx, data->enemies);
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
-	exit (0);
-}
-
 int	handle_input(int keysym, t_list *data)
 {
 	if (keysym == XK_Escape)
@@ -80,7 +64,7 @@ int	key_press_hook(int keycode, t_list *data)
 	if (keycode == 65307)
 	{
 		free_all2(data);
-		exit (0);
+		exit(0);
 	}
 	return (0);
 }
@@ -94,11 +78,9 @@ int	main(void)
 	exit_pos(&data);
 	collect_total(&data);
 	refresh(&data);
-	mlx_hook(data.win, 17, (1L << 17), close_window, 0);
-	mlx_hook(data.win, 2, 1L << 0, key_press_hook, &data);
+	mlx_hook(data.win, 17, (1L << 19), close_window, 0);
+	mlx_hook(data.win, 2, 1L << 0, &key_press_hook, &data);
 	mlx_loop(data.mlx);
 	free_all2(&data);
 	return (0);
 }
-//faire fonction qui trouve x et y du player puis une fonction de recuperation de touche
-// qui actualise la position du joueur 
