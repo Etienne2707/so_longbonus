@@ -63,17 +63,17 @@ int	free_all2(t_list *data)
 	exit(0);
 }
 
-int	initialisation(t_list *data)
+int	initialisation(int argc, char **argv, t_list *data)
 {
 	int	i;
 
 	data->collect_current = 0;
 	data->nb_move = 0;
 	data->animation = 0;
-	data->map = gnl_and_check();
+	data->map = gnl_and_check(argc, argv);
 	if (data->map == NULL)
 		return (0);
-	if (path_check(data->map) == NULL)
+	if (path_check(argc, argv, data->map) == NULL)
 		return (0);
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)

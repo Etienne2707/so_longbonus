@@ -12,13 +12,15 @@
 
 #include "so_long.h"
 
-char	**gnl_and_check(void)
+char	**gnl_and_check(int argc, char **argv)
 {
 	int		a;
 	char	*str;
 	char	**tab;
 
-	a = open("./src/map.ber", O_RDONLY);
+	check_map_arg(argc, argv[1]);
+	check_file(argv[1]);
+	a = open(argv[1], O_RDONLY);
 	str = get_next_line(a);
 	if (!str)
 	{
@@ -69,11 +71,11 @@ int	key_press_hook(int keycode, t_list *data)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc , char **argv)
 {
 	t_list	data;
 
-	if (!initialisation(&data))
+	if (!initialisation(argc, argv, &data))
 		return (0);
 	exit_pos(&data);
 	collect_total(&data);

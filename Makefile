@@ -32,6 +32,7 @@ SRC = $(SRC_DIR)/checker_map.c				\
 	  $(SRC_DIR)/init.c					    \
   	  $(SRC_DIR)/movement.c					\
       $(SRC_DIR)/get_next_line.c	        \
+	  $(SRC_DIR)/checker_map_utils.c        \
 
 
 

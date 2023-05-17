@@ -72,7 +72,7 @@ int	mlx_hook(void *win_ptr, int x_event, int x_mask, int (*funct)(), void *param
 int	close_window(void);
 void    ft_croix_axe_x(char **str, int x , int y);
 void    ft_croix(char **str, int x, int y);
-char ** path_check(char **map);
+char	**path_check(int argc, char **argv, char **map);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *readed, char *buff);
 int		ft_strlen(char *str);
@@ -88,7 +88,7 @@ int     check_startend(char **tab);
 int     line_count(char **tab);
 int     check_full_one(char **tab);
 int     one_p_e(char **tab, char c);
-char     **gnl_and_check(void);
+char	**gnl_and_check(int argc, char **argv);
 void player_pos(t_list *data);
 int roadmap(char **str);
 int event(int key, t_list *data);
@@ -98,7 +98,7 @@ int free_all2(t_list *data);
 void     exit_pos(t_list *data);
 void    compteur_pas(t_list *data);
 char *ft_join(char  *s1, char  *s2);
-int    initialisation(t_list *data);
+int	initialisation(int argc, char **argv, t_list *data);
 int w_mov(t_list *data, int x, int y);
 int s_mov(t_list *data, int x, int y);
 int d_mov(t_list *data, int x, int y);
@@ -107,6 +107,8 @@ void	col_max(t_list *data);
 int	free_all(char **tab, int i);
 int	test(char **str);
 void    refresh2(int j, int k, t_list *data);
+void check_map_arg(int argc , char *str);
+void    check_file(char *map);
 
 
 

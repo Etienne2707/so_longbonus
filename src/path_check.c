@@ -35,10 +35,8 @@ int	roadmap(char **str)
 void	ft_croix_axe_x(char **str, int x, int y)
 {
 	int	a;
-	int	b;
 
 	a = x;
-	b = y;
 	while (str[++x][y] == '0' || str[x][y] == 'C')
 		str[x][y] = 'x';
 	x = a;
@@ -50,11 +48,9 @@ void	ft_croix(char **str, int x, int y)
 {
 	int	a;
 	int	b;
-	int	i;
 
 	a = x;
 	b = y;
-	i = 0;
 	while (str[x][++y] == '0' || str[x][y] == 'C')
 		str[x][y] = 'x';
 	y = b;
@@ -84,14 +80,14 @@ void	start(char **str)
 	}
 }
 
-char	**path_check(char **map)
+char	**path_check(int argc, char **argv, char **map)
 {
 	int		x;
 	int		y;
 	char	**str;
 
 	x = 0;
-	str = gnl_and_check();
+	str = gnl_and_check(argc, argv);
 	while (str[x++] != 0)
 	{
 		y = 0;
