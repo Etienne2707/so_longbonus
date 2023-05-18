@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:43:59 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/16 15:34:38 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/18 19:37:46 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	checker_map(char **tab)
 	if (!one_p_e(tab, 'P'))
 		return (0);
 	if (!one_p_e(tab, 'E'))
+		return (0);
+	if (!check_c(tab))
 		return (0);
 	return (1);
 }
@@ -122,4 +124,29 @@ int	check_full_one(char **tab)
 		break ;
 	}
 	return (1);
+}
+
+int	check_c(char **tab)
+{
+	int	i;
+	int	y;
+	int	c;
+
+	c = 0;
+	i = 0;
+	while (tab[i] != 0)
+	{
+		y = 0;
+		while (tab[i][y] != '\0')
+		{
+			if (tab[i][y] == 'C')
+				c++;
+			y++;
+		}
+		i++;
+	}
+	if (c < 1)
+		return (0);
+	else
+		return (1);
 }

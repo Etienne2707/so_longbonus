@@ -6,11 +6,30 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:00:26 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/16 11:25:42 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/18 18:10:15 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+void	check_empty_line(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\n')
+		{
+			if (str[i + 1] == '\n')
+			{
+				write(1, "Error\n",6);
+				free(str);
+				exit(0);
+			}
+		}
+		i++;
+	}
+}
 
 char	*getting_file(char *buff, int fd)
 {

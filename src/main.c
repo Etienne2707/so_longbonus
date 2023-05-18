@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:03:45 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/16 15:32:23 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/18 19:38:55 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ char	**gnl_and_check(int argc, char **argv)
 		printf("Fichier vide");
 		return (NULL);
 	}
+	check_empty_line(str);
 	tab = ft_split(str, '\n');
 	if (!checker_map(tab))
 	{
-		printf("map ko");
+		Error(str, tab);
 		return (NULL);
 	}
 	else

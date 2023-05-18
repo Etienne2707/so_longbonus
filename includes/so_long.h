@@ -109,6 +109,8 @@ int	test(char **str);
 void    refresh2(int j, int k, t_list *data);
 void check_map_arg(int argc , char *str);
 void    check_file(char *map);
+void	check_empty_line(char *str);
+int	check_c(char **tab);
 
 
 
