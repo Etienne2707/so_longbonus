@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:02:12 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:45:46 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 12:03:15 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,11 @@ void	refresh(t_list *data)
 
 void	refresh2(int j, int k, t_list *data)
 {
-	if (data->map[j][k] == 'P')
+	if (data->map[j][k] == 'P' && data->animation == 1)
 		mlx_put_image_to_window(data->mlx, data->win, data->trainer, k * 50, j
+			* 50);
+	else if (data->map[j][k] == 'P' && data->animation == 0)
+		mlx_put_image_to_window(data->mlx, data->win, data->trainer2, k * 50, j
 			* 50);
 	else if (data->map[j][k] == 'C')
 		mlx_put_image_to_window(data->mlx, data->win, data->collectible, k * 50,

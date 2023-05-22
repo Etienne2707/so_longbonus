@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:28:30 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:47:02 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 15:28:33 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,18 @@ char	*ft_join(char *s1, char *s2)
 
 void	compteur_pas(t_list *data)
 {
-
+	int		x;
+	int		y;
+	char	*str;
 	char	*strnb;
 
+	x = 50;
+	y = 50;
+	str = "nombre de d'action :";
 	strnb = ft_itoa(data->nb_move);
-	ft_putnbr_fd(data->nb_move, 1);
-	write(1, "\n", 1);
+	str = ft_join(str, strnb);
+	mlx_string_put(data->mlx, data->win, x, y, 1, str);
 	data->nb_move++;
+	free(str);
 	free(strnb);
 }

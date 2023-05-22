@@ -52,10 +52,10 @@ typedef struct s_list
 	void	*trainer;
 	void	*collectible;
 	void	*exit;
-	int		animation;
 	void	*trainer2;
 	void	*enemies;
 	int 	map_col;
+	int	animation;
 
 }	t_list;
 

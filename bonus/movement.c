@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:18:27 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:44:04 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 15:29:05 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	a_mov(t_list *data, int x, int y)
 		data->collect_current++;
 	data->map[x][y - 1] = data->map[x][y];
 	data->map[x][y] = '0';
+	data->animation = 0;
 	return (1);
 }
 
@@ -69,5 +70,6 @@ int	d_mov(t_list *data, int x, int y)
 		data->collect_current++;
 	data->map[x][y + 1] = data->map[x][y];
 	data->map[x][y] = '0';
+	data->animation = 1;
 	return (1);
 }

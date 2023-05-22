@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:43:59 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:42:40 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/22 11:31:36 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_char(char **tab)
 		while (tab[i][j] != '\0')
 		{
 			if (tab[i][j] == 'E' || tab[i][j] == 'P' || tab[i][j] == 'C'
-				|| tab[i][j] == '0' || tab[i][j] == '1')
+				|| tab[i][j] == '0' || tab[i][j] == '1' || tab[i][j] == 'Y')
 				j++;
 			else
 				return (0);

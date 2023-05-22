@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:22:35 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:45:42 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/16 15:34:22 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	free_all2(t_list *data)
 	mlx_destroy_image(data->mlx, data->trainer);
 	mlx_destroy_image(data->mlx, data->collectible);
 	mlx_destroy_image(data->mlx, data->exit);
+	mlx_destroy_image(data->mlx, data->trainer2);
 	mlx_destroy_image(data->mlx, data->enemies);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
@@ -68,6 +69,7 @@ int	initialisation(int argc, char **argv, t_list *data)
 
 	data->collect_current = 0;
 	data->nb_move = 0;
+	data->animation = 0;
 	data->map = gnl_and_check(argc, argv);
 	if (data->map == NULL)
 		return (0);
@@ -84,6 +86,7 @@ int	initialisation(int argc, char **argv, t_list *data)
 	data->trainer = mlx_xpm_file_to_image(data->mlx, "./img/p.xpm", &i, &i);
 	data->collectible = mlx_xpm_file_to_image(data->mlx, "./img/c.xpm", &i, &i);
 	data->exit = mlx_xpm_file_to_image(data->mlx, "./img/e.xpm", &i, &i);
+	data->trainer2 = mlx_xpm_file_to_image(data->mlx, "./img/p_l2.xpm", &i, &i);
 	data->enemies = mlx_xpm_file_to_image(data->mlx, "./img/x.xpm", &i, &i);
 	return (1);
 }
