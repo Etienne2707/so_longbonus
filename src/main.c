@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:03:45 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/18 19:38:55 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/22 11:36:26 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,16 @@ char	**gnl_and_check(int argc, char **argv)
 	str = get_next_line(a);
 	if (!str)
 	{
-		printf("Fichier vide");
+		write(2, "Fichier vide", 12);
 		return (NULL);
 	}
 	check_empty_line(str);
 	tab = ft_split(str, '\n');
 	if (!checker_map(tab))
 	{
-		Error(str, tab);
+		error(str, tab);
 		return (NULL);
 	}
-	else
-		printf("map ok");
 	free(str);
 	close(a);
 	return (tab);
@@ -72,7 +70,7 @@ int	key_press_hook(int keycode, t_list *data)
 	return (0);
 }
 
-int	main(int argc , char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	data;
 
