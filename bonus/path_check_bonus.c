@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   path_check.c                                       :+:      :+:    :+:   */
+/*   path_check_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:30:33 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/16 15:31:41 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/23 16:03:27 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int	roadmap(char **str)
 		y = 1;
 		while (str[x][y] != '\0')
 		{
-			if (str[x][y] == 'C')
+			if (str[x][y] == 'C' || str[x][y] == 'E')
+			{
+				free_all(str, test(str));
 				return (0);
+			}
 			y++;
 		}
 		x++;
@@ -37,10 +40,10 @@ void	ft_croix_axe_x(char **str, int x, int y)
 	int	a;
 
 	a = x;
-	while (str[++x][y] == '0' || str[x][y] == 'C')
+	while (str[++x][y] == '0' || str[x][y] == 'C' || str[x][y] == 'E')
 		str[x][y] = 'x';
 	x = a;
-	while (str[--x][y] == '0' || str[x][y] == 'C')
+	while (str[--x][y] == '0' || str[x][y] == 'C' || str[x][y] == 'E')
 		str[x][y] = 'x';
 }
 
@@ -51,10 +54,10 @@ void	ft_croix(char **str, int x, int y)
 
 	a = x;
 	b = y;
-	while (str[x][++y] == '0' || str[x][y] == 'C')
+	while (str[x][++y] == '0' || str[x][y] == 'C' || str[x][y] == 'E')
 		str[x][y] = 'x';
 	y = b;
-	while (str[x][--y] == '0' || str[x][y] == 'C')
+	while (str[x][--y] == '0' || str[x][y] == 'C' || str[x][y] == 'E')
 		str[x][y] = 'x';
 	ft_croix_axe_x(str, a, b);
 }
@@ -90,8 +93,8 @@ char	**path_check(int argc, char **argv, char **map)
 	str = gnl_and_check(argc, argv);
 	while (str[x++] != 0)
 	{
-		y = 0;
-		while (str[x][y++] != '\0')
+		y = -1;
+		while (str[x][++y] != '\0')
 		{
 			if (str[x][y] == 'P')
 				break ;

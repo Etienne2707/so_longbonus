@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:28:30 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:47:02 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/23 11:10:08 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*ft_join(char *s1, char *s2)
 
 void	compteur_pas(t_list *data)
 {
-
 	char	*strnb;
 
 	strnb = ft_itoa(data->nb_move);

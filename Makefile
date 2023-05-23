@@ -6,7 +6,7 @@
 #    By: educlos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 14:49:59 by hel-kame          #+#    #+#              #
-#    Updated: 2023/05/22 13:30:51 by educlos          ###   ########.fr        #
+#    Updated: 2023/05/23 15:02:17 by educlos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,19 +34,19 @@ SRC = $(SRC_DIR)/checker_map.c				\
       $(SRC_DIR)/get_next_line.c	        \
 	  $(SRC_DIR)/checker_map_utils.c        \
 
-SRC_BONUS = $(SRC_BONUS_DIR)/checker_map.c		\
-      		$(SRC_BONUS_DIR)/ft_split.c			\
-     		$(SRC_BONUS_DIR)/gnl_utils.c			\
-      		$(SRC_BONUS_DIR)/main.c				\
-	  		$(SRC_BONUS_DIR)/path_check.c			\
-  	  		$(SRC_BONUS_DIR)/event.c				\
-	  		$(SRC_BONUS_DIR)/positions.c			\
-	  		$(SRC_BONUS_DIR)/refresh.c			\
-	  		$(SRC_BONUS_DIR)/compteur.c			\
-	  		$(SRC_BONUS_DIR)/init.c				\
-  	  		$(SRC_BONUS_DIR)/movement.c			\
-      		$(SRC_BONUS_DIR)/get_next_line.c	    \
-	  		$(SRC_BONUS_DIR)/checker_map_utils.c  \
+SRC_BONUS = $(SRC_BONUS_DIR)/checker_map_bonus.c		\
+      		$(SRC_BONUS_DIR)/ft_split_bonus.c			\
+     		$(SRC_BONUS_DIR)/gnl_utils_bonus.c			\
+      		$(SRC_BONUS_DIR)/main_bonus.c				\
+	  		$(SRC_BONUS_DIR)/path_check_bonus.c			\
+  	  		$(SRC_BONUS_DIR)/event_bonus.c				\
+	  		$(SRC_BONUS_DIR)/positions_bonus.c			\
+	  		$(SRC_BONUS_DIR)/refresh_bonus.c			\
+	  		$(SRC_BONUS_DIR)/compteur_bonus.c			\
+	  		$(SRC_BONUS_DIR)/init_bonus.c				\
+  	  		$(SRC_BONUS_DIR)/movement_bonus.c			\
+      		$(SRC_BONUS_DIR)/get_next_line_bonus.c	    \
+	  		$(SRC_BONUS_DIR)/checker_map_utils_bonus.c  \
 
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(BIN_DIR)/%.o)
@@ -67,32 +67,33 @@ MATH = -lm
 
 INCLUDES = ./includes
 
+
 CFLAGS = -Werror -Wextra -Wall -I$(INCLUDES) -I$(MLX_PATH) -g3
 
-all :	$(NAME)
+all :	$(BIN_DIR) $(NAME)
 
 bonus:	$(NAME_BONUS)
 
-$(BIN_DIR):
-		@ mkdir -p $(BIN_DIR)
-
-$(OBJ) :		$(BIN_DIR)/%.o: $(SRC_DIR)/%.c $(BIN_DIR)
+$(OBJ) :		$(BIN_DIR)%.o: $(SRC_DIR)/%.c
 		@ $(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_BONUS) :		$(BIN_DIR)/%.o: $(SRC_BONUS_DIR)/%.c $(BIN_DIR)
+$(OBJ_BONUS) :		$(BIN_DIR)%.o: $(SRC_BONUS_DIR)/%.c
 		@ $(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) :	$(OBJ)
+$(NAME) :	$(BIN_DIR) $(OBJ)
 			@ $(MAKE) -s -C $(MLX_PATH)
 			@ $(MAKE) -s -C $(LIB_PATH)
 			@ $(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLX_REQUIRES) $(LIB) $(MATH) -o $(NAME)
 			@ echo "\e[33m\e[1m\tMake\e[0m [🗿] : \e[1mDone ! ✅"
 
-$(NAME_BONUS) :	$(OBJ_BONUS)
+$(NAME_BONUS) :	$(BIN_DIR) $(OBJ_BONUS)
 			@ $(MAKE) -s -C $(MLX_PATH)
 			@ $(MAKE) -s -C $(LIB_PATH)
 			@ $(CC) $(CFLAGS) $(OBJ_BONUS) $(MLX) $(MLX_REQUIRES) $(LIB) $(MATH) -o $(NAME_BONUS)
 			@ echo "\e[33m\e[1m\tMake\e[0m [🗿] : \e[1mBonus ! 💸"
+
+$(BIN_DIR):
+		@ mkdir -p $(BIN_DIR)
 
 clean :
 		@ $(MAKE) -s clean -C $(LIB_PATH)

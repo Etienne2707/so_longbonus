@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:03:45 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:36:26 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/23 17:34:36 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ char	**gnl_and_check(int argc, char **argv)
 		write(2, "Fichier vide", 12);
 		return (NULL);
 	}
-	check_empty_line(str);
+	check_empty_line(str, a);
 	tab = ft_split(str, '\n');
 	if (!checker_map(tab))
 	{
-		error(str, tab);
+		error(tab);
+		free(str);
+		close(a);
 		return (NULL);
 	}
 	free(str);
@@ -75,7 +77,10 @@ int	main(int argc, char **argv)
 	t_list	data;
 
 	if (!initialisation(argc, argv, &data))
+	{
+		error(data.map);
 		return (0);
+	}	
 	exit_pos(&data);
 	collect_total(&data);
 	refresh(&data);

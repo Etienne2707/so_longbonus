@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:00:26 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:32:32 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/23 17:34:05 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_empty_line(char *str)
+void	check_empty_line(char *str, int a)
 {
 	int	i;
 
@@ -25,6 +25,7 @@ void	check_empty_line(char *str)
 			{
 				write(1, "Error\n", 6);
 				free(str);
+				close(a);
 				exit(0);
 			}
 		}

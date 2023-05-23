@@ -6,7 +6,7 @@
 /*   By: educlos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:28:58 by educlos           #+#    #+#             */
-/*   Updated: 2023/05/22 11:38:09 by educlos          ###   ########.fr       */
+/*   Updated: 2023/05/23 17:39:06 by educlos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	check_map_arg(int argc, char *str)
 
 void	check_file(char *map)
 {
-	char	buff[42];
+	char	buff[BUFFER_SIZE];
 	int		n;
 	int		a;
 
 	a = open(map, O_RDONLY);
-	n = read(a, buff, 42);
+	n = read(a, buff, BUFFER_SIZE);
 	if (n < 0)
 		return ;
 	if (n == 0)
@@ -61,19 +61,20 @@ void	check_file(char *map)
 	return ;
 }
 
-void	error(char *str, char **tab)
+void	error(char **tab)
 {
 	int	i;
 
+	if (tab == NULL)
+		return ;
 	i = 0;
-	free(str);
 	while (tab[i] != 0)
 	{
 		free(tab[i]);
 		i++;
 	}
 	free(tab);
-	write(2, "Map invalide", 12);
+	write(2, "Invalid map\n", 12);
 }
 
 int	check_c(char **tab)
